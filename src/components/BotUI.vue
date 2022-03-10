@@ -38,6 +38,7 @@
 </template>
 <script>
 import EventBus from '../helpers/event-bus'
+import Config from '../config'
 import BoardHeader from './Board/Header'
 import BoardContent from './Board/Content'
 import BoardAction from './Board/Action'
@@ -80,6 +81,10 @@ export default {
     isOpen: {
       type: Boolean,
       default: false
+    },
+
+    openDelay: {
+      type: Number
     }
   },
 
@@ -124,11 +129,25 @@ export default {
   },
 
   created () {
-    this.initBot()
+    if (this.isOpen) {
+      if (this.openDelay) {
+        setTimeout(this.botOpen, this.openDelay)
+      } else {
+        this.botToggle()
+      }
+    }
   },
 
   mounted () {
-    EventBus.$on('select-button-option', this.selectOption)
+    document.addEventListener(Config.EVENT_OPEN, function () {
+      this.botOpen()
+    })
+    document.addEventListener(Config.EVENT_CLOSE, function () {
+      this.botClose()
+    })
+    document.addEventListener(Config.EVENT_TOGGLE, function () {
+      this.botToggle()
+    })
   },
 
   beforeDestroy () {
@@ -136,21 +155,26 @@ export default {
   },
 
   methods: {
-    initBot () {
-      if (this.isOpen) {
-        this.botActive = true
+    botOpen () {
+      if (!this.botActive) {
+        this.botToggle()
       }
+    },
 
-      this.$emit('init')
+    botClose () {
+      if (this.botActive) {
+        this.botToggle()
+      }
     },
 
     botToggle () {
       this.botActive = !this.botActive
 
       if (this.botActive) {
-        this.$emit('open')
+        EventBus.$on('select-button-option', this.selectOption)
+        this.$emit('init')
       } else {
-        // EventBus.$off('select-button-option')
+        EventBus.$off('select-button-option')
         this.$emit('destroy')
       }
     },

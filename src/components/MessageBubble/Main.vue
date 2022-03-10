@@ -13,11 +13,15 @@
 <script>
 import SingleText from './SingleText'
 import ButtonOptions from './ButtonOptions'
+import Imagetext from './Imagetext'
+import Carousel from './Carousel'
 
 export default {
   components: {
     SingleText,
-    ButtonOptions
+    ButtonOptions,
+    Imagetext,
+    Carousel
   },
 
   props: {
@@ -40,6 +44,12 @@ export default {
       switch (this.message.type) {
         case 'button':
           type = 'ButtonOptions'
+          break
+        case 'image':
+          type = 'Imagetext'
+          break
+        case 'carousel':
+          type = 'Carousel'
           break
         default:
           type = 'SingleText'

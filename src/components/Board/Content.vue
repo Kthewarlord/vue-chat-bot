@@ -35,10 +35,6 @@ export default {
     }
   },
 
-  mounted () {
-    this.updateScroll()
-  },
-
   watch: {
     mainData: function (newVal) {
       this.$nextTick(() => {

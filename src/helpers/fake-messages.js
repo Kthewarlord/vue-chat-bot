@@ -64,5 +64,41 @@ export const fakeMessages = [
       }
     ],
     'disableInput': false
+  },
+  {
+    'type': 'image',
+    'text': 'Open vk.',
+    'options': [
+      {
+        'value': 'http://www.userlogos.org/files/vk-logo.png',
+        'clickable': true,
+        'action': 'https://vk.com/?lang=en'
+      }
+    ],
+    'disableInput': false
+  },
+  {
+    'type': 'image',
+    'text': 'Clickable Image.',
+    'options': [
+      {
+        'value': 'http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/social-youtube-icon.png',
+        'clickable': true,
+        'action': 'https://www.youtube.com/'
+      }
+    ],
+    'disableInput': false
+  },
+  {
+    'type': 'image',
+    'text': 'Unclickable Image.',
+    'options': [
+      {
+        'value': 'http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/social-youtube-icon.png',
+        'clickable': false,
+        'action': 'https://www.youtube.com/'
+      }
+    ],
+    'disableInput': false
   }
 ]

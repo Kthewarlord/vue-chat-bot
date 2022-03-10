@@ -1,28 +1,29 @@
-<template lang="pug">
-#app
-  img(
-    alt="Vue Bot UI",
-    src="./assets/logo.png"
-  )
-  VueChatBot(
-    :options="botOptions",
-    :messages="messageData",
-    :bot-typing="botTyping",
-    :input-disable="inputDisable",
-    :is-open="false",
-    @init="botStart",
-    @msg-send="msgSend",
-  )
+<template>
+  <div id="app">
+    <div id="block" style="border: 1px solid black; display: grid;">
+      <img alt="Vue Bot UI" src="https://cdn-icons-png.flaticon.com/512/1786/1786548.png"/>
+      <a href="https://www.flaticon.com/free-icons/bot" title="bot icons">Bot icons created by Freepik - Flaticon</a>
+    </div>
+    <VueBotUI
+      :options="botOptions"
+      :messages="messageData"
+      :bot-typing="botTyping"
+      :input-disable="inputDisable"
+      :is-open="false"
+      @init="botStart"
+      @msg-send="msgSend">
+    </VueBotUI>
+  </div>
 </template>
+
 <script>
 import BotIcon from './assets/icons/bot.png'
-import { VueChatBot } from './vue-chat-bot'
+import { VueBotUI } from './vue-bot-ui'
 import { messageService } from './helpers/message'
 
 export default {
   components: {
-    BotIcon,
-    VueChatBot
+    VueBotUI
   },
 
   data () {
@@ -31,12 +32,14 @@ export default {
       botTyping: false,
       inputDisable: false,
       botOptions: {
+        botTitle: 'บอททดสอบ',
+        colorScheme: '#335f6f',
         botAvatarImg: BotIcon,
         boardContentBg: '#f4f4f4',
         msgBubbleBgBot: '#fff',
-        inputPlaceholder: 'Type hereeee...',
+        inputPlaceholder: 'พิมพ์ที่นี่',
         inputDisableBg: '#fff',
-        inputDisablePlaceholder: 'Hit the buttons above to respond'
+        inputDisablePlaceholder: 'กรุณากดปุ่ม'
       }
     }
   },
@@ -53,7 +56,7 @@ export default {
         this.messageData.push({
           agent: 'bot',
           type: 'text',
-          text: 'Hello'
+          text: 'สวัสดี'
         })
       }, 1000)
     },
@@ -66,31 +69,166 @@ export default {
         text: value.text
       })
 
-      this.getResponse()
+      this.getResponse(value.text)
     },
 
     // Submit the message from user to bot API, then get the response from Bot
-    getResponse () {
+    getResponse (inputtext) {
       // Loading
       this.botTyping = true
-
-      // Post the message from user here
-      // Then get the response as below
-
-      // Create new message from fake data
-      messageService.createMessage()
-        .then((response) => {
+      switch (inputtext) {
+        case 'ชามเขียวคว่ำเช้า':
           const replyMessage = {
             agent: 'bot',
-            ...response
+            type: 'text',
+            text: 'ชามขาวคว่ำค่ำ',
+            disableInput: false
           }
-
-          this.inputDisable = response.disableInput
           this.messageData.push(replyMessage)
-
           // finish
           this.botTyping = false
-        })
+          break
+        case 'ปุ่มกด':
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                type: 'button',
+                text: 'กดปุ่มต่อไปนี้',
+                options: [
+                  {
+                    text: 'เปิด Google',
+                    value: 'https://google.com',
+                    action: 'url'
+                  },
+                  {
+                    text: 'ยกเลิก',
+                    value: 'กดปุ่มยกเลิก',
+                    action: 'postback' // Request to API
+                  }
+                ],
+                disableInput: true
+              }
+              this.inputDisable = replyMessage.disableInput
+              this.messageData.push(replyMessage)
+
+              // finish
+              this.botTyping = false
+            })
+          break
+        case 'ยกเลิก':
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                type: 'text',
+                text: 'ยกเลิกปุ่มกดแล้ว สามารถพิมพ์ต่อได้',
+                disableInput: false
+              }
+              this.messageData.push(replyMessage)
+              this.inputDisable = replyMessage.disableInput
+              // finish
+              this.botTyping = false
+            })
+          break
+        case 'วันนี้วันที่เท่าไหร่':
+          var myDate = new Date()
+          const td = 'วันนี้คือวันที่: ' + myDate.getDate().toString()
+
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                type: 'text',
+                text: td,
+                disableInput: false
+              }
+              this.messageData.push(replyMessage)
+              this.inputDisable = replyMessage.disableInput
+              // finish
+              this.botTyping = false
+            })
+          break
+        case 'ขอไลน์หน่อย':
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                'type': 'image',
+                'text': 'คลิกที่รูปก็ได้นะ',
+                'options': [
+                  {
+                    'value': 'https://d2ijd3g5wqapxj.cloudfront.net/wp-content/uploads/2021/07/2301620.jpg',
+                    'clickable': true,
+                    'action': 'https://account.line.biz/login?redirectUri=https://page.line.biz/'
+                  }
+                ],
+                'disableInput': false
+              }
+
+              this.inputDisable = response.disableInput
+              this.messageData.push(replyMessage)
+
+              // finish
+              this.botTyping = false
+            })
+          break
+        case 'carousel':
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                'type': 'carousel',
+                'perpage': 1,
+                'options': [
+                  {
+                    'toptext': 'ดงพญาเย็น',
+                    'value': 'https://paikondieow.com/wp-content/uploads/2022/02/6-14.jpg',
+                    'clickable': true,
+                    'buttontext': 'รายละเอียด',
+                    'action': 'https://paikondieow.com/dong-phayayen/'
+                  },
+                  {
+                    'toptext': 'สหภาพ',
+                    'value': 'https://i0.wp.com/www.chomthai.com/forum/picture/1293262165.jpg',
+                    'clickable': false,
+                    'action': 'none'
+                  },
+                  {
+                    'toptext': 'ไลน์',
+                    'value': 'https://d2ijd3g5wqapxj.cloudfront.net/wp-content/uploads/2021/07/2301620.jpg',
+                    'clickable': true,
+                    'action': 'https://account.line.biz/login?redirectUri=https://page.line.biz/'
+                  }
+                ],
+                'disableInput': false
+              }
+
+              this.inputDisable = response.disableInput
+              this.messageData.push(replyMessage)
+
+              // finish
+              this.botTyping = false
+            })
+          break
+        default:
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                ...response
+              }
+
+              this.inputDisable = response.disableInput
+              this.messageData.push(replyMessage)
+
+              // finish
+              this.botTyping = false
+            })
+      }
+      // Post the message from user here
+      // Then get the response as below
+      // Create new message from fake data
     }
   }
 }
@@ -101,7 +239,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // text-align: center;
-  color: #2c3e50;
+  color: #5239df;
   margin-top: 60px;
+}
+#block {
+  display: block;
 }
 </style>
