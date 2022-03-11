@@ -1,6 +1,5 @@
 <template>
-  <div class="qkb-msg-bubble-component" style="width: 90%">
-    <div class="qkb-msg-bubble-component__text">
+    <div class="qkb-msg-bubble-component__text" style="margin-left: 10px; width:90%;">
       <Flicking :options="{ circular: mainData.loop, align: mainData.align }">
         <div v-for="(item, index) in mainData.options" :key="index" class="panel">
           <div v-if="item.clickable==true">
@@ -22,7 +21,6 @@
         </div>
       </Flicking>
     </div>
-  </div>
 </template>
 
 <script>
