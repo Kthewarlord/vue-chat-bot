@@ -7,7 +7,7 @@
               <span style="text-align: center; display: block;">
                   {{item.toptext}}
               </span>
-              <img :src="item.value" alt="Picture" width="200" height="200" style="margin: auto; display: block;">
+              <img :src="item.value" alt="Picture" width="200" height="200" style="margin: auto; display: block;" draggable="false">
               <a target="_blank" :href="item.action">
                   <span style="text-align: center; display: block;">
                       {{item.buttontext}}
@@ -20,7 +20,7 @@
               <span style="text-align: center; display: block;">
                   {{item.toptext}}
               </span>
-              <img :src="item.value" alt="Picture" width="200" height="200" style="margin: auto; display: block;">
+              <img :src="item.value" alt="Picture" width="200" height="200" style="margin: auto; display: block;" draggable="false">
             </div>
           </div>
         </div>
