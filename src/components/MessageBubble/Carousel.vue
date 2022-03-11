@@ -3,19 +3,24 @@
       <Flicking :options="{ circular: mainData.loop, align: mainData.align }">
         <div v-for="(item, index) in mainData.options" :key="index" class="panel">
           <div v-if="item.clickable==true">
-            <div style="margin-left: 10px; margin-right: 15px; text-align: center; display: block;">
+            <div style="margin-left: 10px; margin-right: 15px; display: block;">
               <span style="text-align: center; display: block;">
                   {{item.toptext}}
               </span>
-              <img :src="item.value" alt="Picture" width="200" height="200">
+              <img :src="item.value" alt="Picture" width="200" height="200" style="margin: auto; display: block;">
+              <a target="_blank" :href="item.action">
+                  <span style="text-align: center; display: block;">
+                      {{item.buttontext}}
+                  </span>
+              </a>
             </div>
           </div>
           <div v-else>
-            <div style="margin-left: 10px; margin-right: 15px; text-align: center; display: block;">
+            <div style="margin-left: 10px; margin-right: 15px; display: block;">
               <span style="text-align: center; display: block;">
                   {{item.toptext}}
               </span>
-              <img :src="item.value" alt="Picture" width="200" height="200">
+              <img :src="item.value" alt="Picture" width="200" height="200" style="margin: auto; display: block;">
             </div>
           </div>
         </div>
