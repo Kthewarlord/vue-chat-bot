@@ -1,10 +1,10 @@
 <template>
   <div class="qkb-msg-bubble-component" style="width: 90%">
     <div class="qkb-msg-bubble-component__text">
-      <Flicking :options="{ circular: true, align: 'prev' }">
+      <Flicking :options="{ circular: mainData.loop, align: mainData.align }">
         <div v-for="(item, index) in mainData.options" :key="index" class="panel">
           <div v-if="item.clickable==true">
-            <div style="margin-left: 15px; margin-right: 15px; text-align: center; display: block;">
+            <div style="margin-left: 10px; margin-right: 15px; text-align: center; display: block;">
               <span style="text-align: center; display: block;">
                   {{item.toptext}}
               </span>
@@ -12,7 +12,7 @@
             </div>
           </div>
           <div v-else>
-            <div style="margin-left: 15px; margin-right: 15px; text-align: center; display: block;">
+            <div style="margin-left: 10px; margin-right: 15px; text-align: center; display: block;">
               <span style="text-align: center; display: block;">
                   {{item.toptext}}
               </span>

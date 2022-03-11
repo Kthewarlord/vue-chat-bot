@@ -179,7 +179,8 @@ export default {
               const replyMessage = {
                 agent: 'bot',
                 'type': 'carousel',
-                'perpage': 1,
+                'loop': false,
+                'align': 'prev',
                 'options': [
                   {
                     'toptext': 'ดงพญาเย็น',
@@ -189,13 +190,7 @@ export default {
                     'action': 'https://paikondieow.com/dong-phayayen/'
                   },
                   {
-                    'toptext': 'สหภาพ',
-                    'value': 'https://i0.wp.com/www.chomthai.com/forum/picture/1293262165.jpg',
-                    'clickable': false,
-                    'action': 'none'
-                  },
-                  {
-                    'toptext': 'sdaa',
+                    'toptext': 'สวนท่าเนิน',
                     'value': 'https://i0.wp.com/www.chomthai.com/forum/picture/1293262165.jpg',
                     'clickable': false,
                     'action': 'none'
