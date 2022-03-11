@@ -59,6 +59,6 @@
   "homepage": "https://github.com/cuoool/vue-chat-bot.git#readme",
   "license": "MIT",
   "dependencies": {
-    "vue-carousel": "^0.18.0"
+    "@egjs/vue-flicking": "^4.5.2"
   }
 }

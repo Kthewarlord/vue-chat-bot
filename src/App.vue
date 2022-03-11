@@ -195,6 +195,12 @@ export default {
                     'action': 'none'
                   },
                   {
+                    'toptext': 'sdaa',
+                    'value': 'https://i0.wp.com/www.chomthai.com/forum/picture/1293262165.jpg',
+                    'clickable': false,
+                    'action': 'none'
+                  },
+                  {
                     'toptext': 'ไลน์',
                     'value': 'https://d2ijd3g5wqapxj.cloudfront.net/wp-content/uploads/2021/07/2301620.jpg',
                     'clickable': true,
