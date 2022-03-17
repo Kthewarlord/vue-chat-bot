@@ -171,7 +171,7 @@ Current components supported by this package, path to files: `components/Message
 ```
 
 
-- **** - `type: 'Imagetext'`
+- **Imagetext** - `type: 'image'`
 ```javascript
 {
   agent: 'bot',
@@ -185,6 +185,17 @@ Current components supported by this package, path to files: `components/Message
         'action': 'https://account.line.biz/login?redirectUri=https://page.line.biz/'
       }
   ]
+}
+```
+
+
+- **Sticker** - `type: 'sticker'`
+```javascript
+{
+  agent: 'bot',
+  type: 'sticker',
+  stickersource: 'https://rumorscity.com/wp-content/uploads/line-sticker/0/0/100/2/main.png',
+  disableInput: false
 }
 ```
 
