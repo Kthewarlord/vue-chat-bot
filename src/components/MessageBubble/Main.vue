@@ -15,13 +15,15 @@ import SingleText from './SingleText'
 import ButtonOptions from './ButtonOptions'
 import Imagetext from './Imagetext'
 import Carousel from './Carousel'
+import LineCarousel from './LineCarousel'
 
 export default {
   components: {
     SingleText,
     ButtonOptions,
     Imagetext,
-    Carousel
+    Carousel,
+    LineCarousel
   },
 
   props: {
@@ -50,6 +52,9 @@ export default {
           break
         case 'carousel':
           type = 'Carousel'
+          break
+        case 'linecarousel':
+          type = 'LineCarousel'
           break
         default:
           type = 'SingleText'
