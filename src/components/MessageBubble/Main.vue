@@ -16,6 +16,7 @@ import ButtonOptions from './ButtonOptions'
 import Imagetext from './Imagetext'
 import Carousel from './Carousel'
 import LineCarousel from './LineCarousel'
+import Sticker from './Sticker'
 
 export default {
   components: {
@@ -23,6 +24,7 @@ export default {
     ButtonOptions,
     Imagetext,
     Carousel,
+    Sticker,
     LineCarousel
   },
 
@@ -55,6 +57,9 @@ export default {
           break
         case 'linecarousel':
           type = 'LineCarousel'
+          break
+        case 'sticker':
+          type = 'Sticker'
           break
         default:
           type = 'SingleText'

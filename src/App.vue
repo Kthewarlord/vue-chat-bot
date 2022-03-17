@@ -173,6 +173,23 @@ export default {
               this.botTyping = false
             })
           break
+        case 'sticker':
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                'type': 'sticker',
+                'stickersource': 'https://rumorscity.com/wp-content/uploads/line-sticker/0/0/100/2/main.png',
+                'disableInput': false
+              }
+
+              this.inputDisable = response.disableInput
+              this.messageData.push(replyMessage)
+
+              // finish
+              this.botTyping = false
+            })
+          break
         case 'carousel':
           messageService.createMessage()
             .then((response) => {
