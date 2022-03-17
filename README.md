@@ -5,6 +5,8 @@
 
 I build for my private project, but I tried to bring as many options as I think someone need it, so feel free to use it.
 
+Forked From Bonnak/vue-chat-bot
+
 *Demo page is coming soon.*
 
 <p align="center">
@@ -165,6 +167,24 @@ Current components supported by this package, path to files: `components/Message
     },
     ...
   ],
+}
+```
+
+
+- **** - `type: 'Imagetext'`
+```javascript
+{
+  agent: 'bot',
+  type: 'image',
+  text: 'The picture is clickable',
+  disableInput: false,
+  options: [
+      {
+        'value': 'https://d2ijd3g5wqapxj.cloudfront.net/wp-content/uploads/2021/07/2301620.jpg',
+        'clickable': true,
+        'action': 'https://account.line.biz/login?redirectUri=https://page.line.biz/'
+      }
+  ]
 }
 ```
 
