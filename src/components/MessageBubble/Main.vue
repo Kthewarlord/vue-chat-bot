@@ -17,6 +17,8 @@ import Imagetext from './Imagetext'
 import Carousel from './Carousel'
 import LineCarousel from './LineCarousel'
 import Sticker from './Sticker'
+import Confirm from './Confirm'
+import Imagemap from './Imagemap'
 
 export default {
   components: {
@@ -25,7 +27,9 @@ export default {
     Imagetext,
     Carousel,
     Sticker,
-    LineCarousel
+    LineCarousel,
+    Confirm,
+    Imagemap
   },
 
   props: {
@@ -60,6 +64,12 @@ export default {
           break
         case 'sticker':
           type = 'Sticker'
+          break
+        case 'confirm':
+          type = 'Confirm'
+          break
+        case 'imagemap':
+          type = 'Imagemap'
           break
         default:
           type = 'SingleText'

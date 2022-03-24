@@ -103,7 +103,7 @@ export default {
                   },
                   {
                     text: 'ยกเลิก',
-                    value: 'กดปุ่มยกเลิก',
+                    value: 'คำที่พิมพ์กลับไปจะดูจากtextไม่ใช่value',
                     action: 'postback' // Request to API
                   }
                 ],
@@ -180,6 +180,68 @@ export default {
                 agent: 'bot',
                 'type': 'sticker',
                 'stickersource': 'https://rumorscity.com/wp-content/uploads/line-sticker/0/0/100/2/main.png',
+                'disableInput': false
+              }
+
+              this.inputDisable = response.disableInput
+              this.messageData.push(replyMessage)
+
+              // finish
+              this.botTyping = false
+            })
+          break
+        case 'confirm':
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                'type': 'confirm',
+                'maintext': 'operation confirm?',
+                'buttons': [
+                  {
+                    text: 'รายละเอียด',
+                    value: 'https://paikondieow.com/dong-phayayen/',
+                    action: 'url'
+                  },
+                  {
+                    text: 'ยกเลิก',
+                    value: 'กดปุ่มยกเลิก',
+                    action: 'postback' // Request to API
+                  }
+                ],
+                'disableInput': false
+              }
+
+              this.inputDisable = response.disableInput
+              this.messageData.push(replyMessage)
+
+              // finish
+              this.botTyping = false
+            })
+          break
+        case 'im':
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                'type': 'imagemap',
+                'imagesource': 'https://well-of-souls.com/civ/images/gak_new_york.jpg',
+                'clickablearea': [
+                  {
+                    type: 'circle',
+                    coords: '60, 60, 30',
+                    value: 'https://paikondieow.com/dong-phayayen/',
+                    areaname: 'test',
+                    action: 'url'
+                  },
+                  {
+                    type: 'circle',
+                    coords: '120, 120, 20',
+                    text: 'arai',
+                    areaname: 'test2',
+                    action: 'postback'
+                  }
+                ],
                 'disableInput': false
               }
 
