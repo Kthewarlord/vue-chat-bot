@@ -19,6 +19,7 @@ import LineCarousel from './LineCarousel'
 import Sticker from './Sticker'
 import Confirm from './Confirm'
 import Imagemap from './Imagemap'
+import AltConfirm from './AlternateConfirm'
 
 export default {
   components: {
@@ -29,6 +30,7 @@ export default {
     Sticker,
     LineCarousel,
     Confirm,
+    AltConfirm,
     Imagemap
   },
 
@@ -67,6 +69,9 @@ export default {
           break
         case 'confirm':
           type = 'Confirm'
+          break
+        case 'altconfirm':
+          type = 'AltConfirm'
           break
         case 'imagemap':
           type = 'Imagemap'

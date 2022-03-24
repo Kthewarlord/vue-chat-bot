@@ -219,6 +219,35 @@ export default {
               this.botTyping = false
             })
           break
+        case 'ac':
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                'type': 'altconfirm',
+                'maintext': 'operation?',
+                'buttons': [
+                  {
+                    text: 'รายละเอียด',
+                    value: 'https://paikondieow.com/dong-phayayen/',
+                    action: 'url'
+                  },
+                  {
+                    text: 'ยกเลิก',
+                    value: 'กดปุ่มยกเลิก',
+                    action: 'postback' // Request to API
+                  }
+                ],
+                'disableInput': false
+              }
+
+              this.inputDisable = response.disableInput
+              this.messageData.push(replyMessage)
+
+              // finish
+              this.botTyping = false
+            })
+          break
         case 'im':
           messageService.createMessage()
             .then((response) => {
