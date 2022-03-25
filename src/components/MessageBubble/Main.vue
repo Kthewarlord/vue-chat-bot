@@ -16,9 +16,11 @@ import ButtonOptions from './ButtonOptions'
 import Imagetext from './Imagetext'
 import Carousel from './Carousel'
 import LineCarousel from './LineCarousel'
+import ImageCarousel from './ImageCarousel'
 import Sticker from './Sticker'
 import Confirm from './Confirm'
 import Imagemap from './Imagemap'
+import Checkbox from './Checkbox'
 import AltConfirm from './AlternateConfirm'
 
 export default {
@@ -29,9 +31,11 @@ export default {
     Carousel,
     Sticker,
     LineCarousel,
+    ImageCarousel,
     Confirm,
     AltConfirm,
-    Imagemap
+    Imagemap,
+    Checkbox
   },
 
   props: {
@@ -64,6 +68,9 @@ export default {
         case 'linecarousel':
           type = 'LineCarousel'
           break
+        case 'imagecarousel':
+          type = 'ImageCarousel'
+          break
         case 'sticker':
           type = 'Sticker'
           break
@@ -75,6 +82,9 @@ export default {
           break
         case 'imagemap':
           type = 'Imagemap'
+          break
+        case 'checkbox':
+          type = 'Checkbox'
           break
         default:
           type = 'SingleText'

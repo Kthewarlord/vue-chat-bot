@@ -173,6 +173,28 @@ export default {
               this.botTyping = false
             })
           break
+        case 'aa':
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                'type': 'checkbox',
+                'text': 'ท่านมีอาการในข้อใดบ้าง',
+                'options': {
+                  'ปวดหัว': false,
+                  'ปวดตัว': false,
+                  'ปวดขา': false
+                },
+                'disableInput': false
+              }
+
+              this.inputDisable = response.disableInput
+              this.messageData.push(replyMessage)
+
+              // finish
+              this.botTyping = false
+            })
+          break
         case 'sticker':
           messageService.createMessage()
             .then((response) => {
@@ -332,6 +354,74 @@ export default {
               const replyMessage = {
                 agent: 'bot',
                 'type': 'linecarousel',
+                'loop': false,
+                'align': 'center',
+                'options': [
+                  {
+                    'maintext': 'ดงพญาเย็น',
+                    'description': 'ร้อนๆ แบบนี้ แนะนำว่าต้องไปเที่ยว น้ำตก กันเลย และถ้าจะหาที่เที่ยวใกล้กรุงเทพ น้ำตกสวยๆ ก็ต้อง จังหวัดสระบุรี เลยค่ะ ซึ่งเราจะพาไปน้ำตกที่อยู่ใกล้ๆ น้ำตกเจ็ดสาวน้อย นั่นก็คือ น้ำตกดงพญาเย็น อย่ารอช้าดีกว่า ไปรับความสดชื่น เล่นน้ำคลายร้อนกันเลย',
+                    'value': 'https://paikondieow.com/wp-content/uploads/2022/02/6-14.jpg',
+                    'clickable': true,
+                    'buttons': [
+                      {
+                        text: 'รายละเอียด',
+                        value: 'https://paikondieow.com/dong-phayayen/',
+                        action: 'url'
+                      },
+                      {
+                        text: 'ยกเลิก',
+                        value: 'กดปุ่มยกเลิก',
+                        action: 'postback' // Request to API
+                      }
+                    ]
+                  },
+                  {
+                    'maintext': 'สวนท่าเนิน',
+                    'description': 'ท่าเรือน้ำลึกแหลมฉบัง เป็นท่าเรือน้ำลึกหลักในการขนส่งสินค้าระหว่างประเทศ ตั้งอยู่ในเขตเทศบาลนครแหลมฉบัง อำเภอศรีราชา และ อำเภอบางละมุง จังหวัดชลบุรี อยู่ภายใต้การดูแลของการท่าเรือแห่งประเทศไทยในเรื่องการบริหารท่าเรือโดยรวม และมีเอกชนรับผิดชอบในเรื่องปฏิบัติการ',
+                    'value': 'https://i0.wp.com/www.chomthai.com/forum/picture/1293262165.jpg',
+                    'clickable': false,
+                    'buttons': [
+                      {
+                        text: 'รายละเอียด',
+                        value: 'https://paikondieow.com/dong-phayayen/',
+                        action: 'url'
+                      },
+                      {
+                        text: 'ยกเลิก',
+                        value: 'กดปุ่มยกเลิก',
+                        action: 'postback' // Request to API
+                      }
+                    ]
+                  },
+                  {
+                    'maintext': 'สวนท่น',
+                    'value': 'https://i0.wp.com/www.chomthai.com/forum/picture/1293262165.jpg',
+                    'clickable': false,
+                    'action': 'none'
+                  },
+                  {
+                    'maintext': 'ไลน์',
+                    'value': 'https://d2ijd3g5wqapxj.cloudfront.net/wp-content/uploads/2021/07/2301620.jpg',
+                    'clickable': true,
+                    'action': 'https://account.line.biz/login?redirectUri=https://page.line.biz/'
+                  }
+                ],
+                'disableInput': false
+              }
+
+              this.inputDisable = response.disableInput
+              this.messageData.push(replyMessage)
+
+              // finish
+              this.botTyping = false
+            })
+          break
+        case 'ic':
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                'type': 'imagecarousel',
                 'loop': false,
                 'align': 'center',
                 'options': [
