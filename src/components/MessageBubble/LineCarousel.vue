@@ -4,9 +4,15 @@
         <div v-for="(item, index) in mainData.options" :key="index" class="panel">
           <div v-if="item.clickable==true">
             <div style="margin-right: 10px; padding: 0px; display: block;" class="qkb-msg-bubble-component__text">
-              <img :src="item.value" alt="Picture" width="200" height="180" style="border-top-style: hidden; border-top-right-radius: 10px; border-top-left-radius: 10px; display: block;" draggable="false">
+              <div v-if="item.banner==true" class="container">
+                <img class="cimg" :src="item.value" alt="Picture" width="200" height="180" style="border-top-style: hidden; border-top-right-radius: 10px; border-top-left-radius: 10px; display: block;" draggable="false">
+                <div class="banner">Test</div>
+              </div>
+              <div v-else>
+                <img :src="item.value" alt="Picture" width="200" height="180" style="border-top-style: hidden; border-top-right-radius: 10px; border-top-left-radius: 10px; display: block;" draggable="false">
+              </div>
               <span style="text-align: center; display: block;">
-                  {{item.toptext}}
+                  {{item.maintext}}
               </span>
               <a target="_blank" :href="item.action">
                   <span style="text-align: center; display: block;">
@@ -17,7 +23,13 @@
           </div>
           <div v-else>
             <div style="margin-right: 10px; padding: 0px; display: block;" class="qkb-msg-bubble-component__text">
-              <img :src="item.value" alt="Picture" width="200" height="180" style="border-top-style: hidden; border-top-right-radius: 10px; border-top-left-radius: 10px; display: block;" draggable="false">
+              <div v-if="item.banner==true" class="container">
+                <img class="cimg" :src="item.value" alt="Picture" width="200" height="180" style="border-top-style: hidden; border-top-right-radius: 10px; border-top-left-radius: 10px; display: block;" draggable="false">
+                <div class="banner">{{item.bannertext}}</div>
+              </div>
+              <div v-else>
+                <img :src="item.value" alt="Picture" width="200" height="180" style="border-top-style: hidden; border-top-right-radius: 10px; border-top-left-radius: 10px; display: block;" draggable="false">
+              </div>
               <!--<div width="200" height="180" style="background-image: url(); border-top-style: hidden; border-top-right-radius: 10px; border-top-left-radius: 10px; display: block;">{{item.maintext}}</div>-->
               <h3 style="text-align: left; margin: 5px auto 5px 5px; width: 190px; display: block;">
                   {{item.maintext}}
@@ -39,6 +51,43 @@
       </Flicking>
     </div>
 </template>
+
+<style scoped>
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* Make the image responsive */
+.container .cimg {
+  width: 200px;
+  height: 180px;
+}
+
+/* Style the button and place it in the middle of the container/image */
+/* text-decoration: none; is to remove underline from <a> tag */
+.container .banner {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 10px;
+  padding: 4px 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.container .banner:hover {
+  background-color: black;
+  opacity: 0.5;
+}
+</style>
 
 <script>
 import EventBus from '../../helpers/event-bus'

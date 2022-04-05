@@ -362,6 +362,7 @@ export default {
                     'description': 'ร้อนๆ แบบนี้ แนะนำว่าต้องไปเที่ยว น้ำตก กันเลย และถ้าจะหาที่เที่ยวใกล้กรุงเทพ น้ำตกสวยๆ ก็ต้อง จังหวัดสระบุรี เลยค่ะ ซึ่งเราจะพาไปน้ำตกที่อยู่ใกล้ๆ น้ำตกเจ็ดสาวน้อย นั่นก็คือ น้ำตกดงพญาเย็น อย่ารอช้าดีกว่า ไปรับความสดชื่น เล่นน้ำคลายร้อนกันเลย',
                     'value': 'https://paikondieow.com/wp-content/uploads/2022/02/6-14.jpg',
                     'clickable': true,
+                    'banner': false,
                     'buttons': [
                       {
                         text: 'รายละเอียด',
@@ -380,6 +381,27 @@ export default {
                     'description': 'ท่าเรือน้ำลึกแหลมฉบัง เป็นท่าเรือน้ำลึกหลักในการขนส่งสินค้าระหว่างประเทศ ตั้งอยู่ในเขตเทศบาลนครแหลมฉบัง อำเภอศรีราชา และ อำเภอบางละมุง จังหวัดชลบุรี อยู่ภายใต้การดูแลของการท่าเรือแห่งประเทศไทยในเรื่องการบริหารท่าเรือโดยรวม และมีเอกชนรับผิดชอบในเรื่องปฏิบัติการ',
                     'value': 'https://i0.wp.com/www.chomthai.com/forum/picture/1293262165.jpg',
                     'clickable': false,
+                    'banner': false,
+                    'buttons': [
+                      {
+                        text: 'รายละเอียด',
+                        value: 'https://paikondieow.com/dong-phayayen/',
+                        action: 'url'
+                      },
+                      {
+                        text: 'ยกเลิก',
+                        value: 'กดปุ่มยกเลิก',
+                        action: 'postback' // Request to API
+                      }
+                    ]
+                  },
+                  {
+                    'maintext': 'bannertest1',
+                    'description': 'bannertest1 for linecarousel hshidujlsfisvklr [bpl,juiyughj',
+                    'value': 'https://i0.wp.com/www.chomthai.com/forum/picture/1293262165.jpg',
+                    'clickable': true,
+                    'banner': true,
+                    'bannertext': 'ลดราคา50%',
                     'buttons': [
                       {
                         text: 'รายละเอียด',
@@ -397,12 +419,15 @@ export default {
                     'maintext': 'สวนท่น',
                     'value': 'https://i0.wp.com/www.chomthai.com/forum/picture/1293262165.jpg',
                     'clickable': false,
+                    'banner': true,
+                    'bannertext': 'ลดราคา100000000000%',
                     'action': 'none'
                   },
                   {
                     'maintext': 'ไลน์',
                     'value': 'https://d2ijd3g5wqapxj.cloudfront.net/wp-content/uploads/2021/07/2301620.jpg',
                     'clickable': true,
+                    'banner': false,
                     'action': 'https://account.line.biz/login?redirectUri=https://page.line.biz/'
                   }
                 ],
@@ -426,52 +451,68 @@ export default {
                 'align': 'center',
                 'options': [
                   {
-                    'maintext': 'ดงพญาเย็น',
-                    'description': 'ร้อนๆ แบบนี้ แนะนำว่าต้องไปเที่ยว น้ำตก กันเลย และถ้าจะหาที่เที่ยวใกล้กรุงเทพ น้ำตกสวยๆ ก็ต้อง จังหวัดสระบุรี เลยค่ะ ซึ่งเราจะพาไปน้ำตกที่อยู่ใกล้ๆ น้ำตกเจ็ดสาวน้อย นั่นก็คือ น้ำตกดงพญาเย็น อย่ารอช้าดีกว่า ไปรับความสดชื่น เล่นน้ำคลายร้อนกันเลย',
-                    'value': 'https://paikondieow.com/wp-content/uploads/2022/02/6-14.jpg',
+                    'alttext': 's1',
+                    'value': 'https://www.cotrpro.com/wp-content/uploads/2020/05/96109814_1872237702907566_3623413605531123712_o-768x768.png',
                     'clickable': true,
-                    'buttons': [
-                      {
-                        text: 'รายละเอียด',
-                        value: 'https://paikondieow.com/dong-phayayen/',
-                        action: 'url'
-                      },
-                      {
-                        text: 'ยกเลิก',
-                        value: 'กดปุ่มยกเลิก',
-                        action: 'postback' // Request to API
-                      }
-                    ]
+                    'label': 'รายละเอียด',
+                    'button': 'https://www.cotrpro.com/2020/05/11/%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%82%E0%B8%A1%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%99%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B8%84%E0%B8%B8%E0%B9%89%E0%B8%A1-%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%AE%E0%B8%B0%E0%B8%88/',
+                    'action': 'url'
                   },
                   {
-                    'maintext': 'สวนท่าเนิน',
-                    'description': 'ท่าเรือน้ำลึกแหลมฉบัง เป็นท่าเรือน้ำลึกหลักในการขนส่งสินค้าระหว่างประเทศ ตั้งอยู่ในเขตเทศบาลนครแหลมฉบัง อำเภอศรีราชา และ อำเภอบางละมุง จังหวัดชลบุรี อยู่ภายใต้การดูแลของการท่าเรือแห่งประเทศไทยในเรื่องการบริหารท่าเรือโดยรวม และมีเอกชนรับผิดชอบในเรื่องปฏิบัติการ',
-                    'value': 'https://i0.wp.com/www.chomthai.com/forum/picture/1293262165.jpg',
-                    'clickable': false,
-                    'buttons': [
-                      {
-                        text: 'รายละเอียด',
-                        value: 'https://paikondieow.com/dong-phayayen/',
-                        action: 'url'
-                      },
-                      {
-                        text: 'ยกเลิก',
-                        value: 'กดปุ่มยกเลิก',
-                        action: 'postback' // Request to API
-                      }
-                    ]
+                    'alttext': 's2',
+                    'value': 'http://thaiten.com/wp-content/uploads/2018/02/product6_cut_r6_c4.png',
+                    'clickable': false
                   },
                   {
-                    'maintext': 'สวนท่น',
-                    'value': 'https://i0.wp.com/www.chomthai.com/forum/picture/1293262165.jpg',
+                    'alttext': 's3',
+                    'value': 'https://hachiban.co.th/_files/product/full/JXB6CGZH.png',
                     'clickable': false,
                     'action': 'none'
                   },
                   {
-                    'maintext': 'ไลน์',
-                    'value': 'https://d2ijd3g5wqapxj.cloudfront.net/wp-content/uploads/2021/07/2301620.jpg',
+                    'alttext': 's4',
+                    'value': 'https://hachiban.co.th/_files/product/full/O92RX6WM.png',
                     'clickable': true,
-                    'action': 'https://account.line.biz/login?redirectUri=https://page.line.biz/'
+                    'label': 'สั่งซื้อ',
+                    'text': 'สั่งซื้อลูกชิ้นเลขแปด',
+                    'action': 'postback'
+                  }
+                ],
+                'disableInput': false
+              }
+
+              this.inputDisable = response.disableInput
+              this.messageData.push(replyMessage)
+
+              // finish
+              this.botTyping = false
+            })
+          break
+        case 'สั่งซื้อลูกชิ้นเลขแปด':
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                'type': 'linebutton',
+                'buttonsize': 'small',
+                'maintext': 'ลูกชิ้นเลขแปด',
+                'description': 'ท่านได้สั่งซื้อลูกชิ้นเลขแปด ราคา 50 บาท',
+                'value': 'https://hachiban.co.th/_files/product/full/O92RX6WM.png',
+                'options': [
+                  {
+                    'label': 'ยืนยันสั่งซื้อและชำระเงิน',
+                    'text': 'ยืนยันสั่งซื้อลูกชิ้นเลขแปดและชำระเงิน',
+                    'action': 'postback'
+                  },
+                  {
+                    'label': 'รายละเอียด',
+                    'button': 'https://www.cotrpro.com/2020/05/11/%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%82%E0%B8%A1%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%99%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B8%84%E0%B8%B8%E0%B9%89%E0%B8%A1-%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%AE%E0%B8%B0%E0%B8%88/',
+                    'action': 'url'
+                  },
+                  {
+                    'label': 'ยกเลิก',
+                    'text': 'ยกเลิกสั่งซื้อลูกชิ้นเลขแปด',
+                    'action': 'postback'
                   }
                 ],
                 'disableInput': false

@@ -22,6 +22,7 @@ import Confirm from './Confirm'
 import Imagemap from './Imagemap'
 import Checkbox from './Checkbox'
 import AltConfirm from './AlternateConfirm'
+import LineButton from './LineButton'
 
 export default {
   components: {
@@ -35,7 +36,8 @@ export default {
     Confirm,
     AltConfirm,
     Imagemap,
-    Checkbox
+    Checkbox,
+    LineButton
   },
 
   props: {
@@ -85,6 +87,9 @@ export default {
           break
         case 'checkbox':
           type = 'Checkbox'
+          break
+        case 'linebutton':
+          type = 'LineButton'
           break
         default:
           type = 'SingleText'
