@@ -67,12 +67,15 @@
 
 /* Style the button and place it in the middle of the container/image */
 /* text-decoration: none; is to remove underline from <a> tag */
-.container .banner {
-  position: absolute;
-  top: 15%;
-  left: 15%;
+/*
+  These two properties will make the element absolute position starts from the center of the element instead of the left of the element
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+*/
+.container .banner {
+  position: absolute;
+  top: 5%;
+  left: 5%;
   background-color: #555;
   color: white;
   font-size: 10px;
