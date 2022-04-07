@@ -6,7 +6,7 @@
             <div style="margin-right: 10px; padding: 0px; display: block;" class="qkb-msg-bubble-component__text">
               <div v-if="item.banner==true" class="container">
                 <img class="cimg" :src="item.value" alt="Picture" width="200" height="180" style="border-top-style: hidden; border-top-right-radius: 10px; border-top-left-radius: 10px; display: block;" draggable="false">
-                <div class="banner">Test</div>
+                <div class="banner">{{item.bannertext}}</div>
               </div>
               <div v-else>
                 <img :src="item.value" alt="Picture" width="200" height="180" style="border-top-style: hidden; border-top-right-radius: 10px; border-top-left-radius: 10px; display: block;" draggable="false">
