@@ -88,6 +88,24 @@ export default {
           // finish
           this.botTyping = false
           break
+        case 'ปุ่มว่างเว้น':
+          messageService.createMessage()
+            .then((response) => {
+              const replyMessage = {
+                agent: 'bot',
+                type: 'button',
+                text: 'ปุ่มว่าง\nเว้นบรรทัด',
+                options: [
+                ],
+                disableInput: false
+              }
+              this.inputDisable = replyMessage.disableInput
+              this.messageData.push(replyMessage)
+
+              // finish
+              this.botTyping = false
+            })
+          break
         case 'ปุ่มกด':
           messageService.createMessage()
             .then((response) => {

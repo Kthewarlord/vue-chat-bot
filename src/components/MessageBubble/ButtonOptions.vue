@@ -1,10 +1,9 @@
 <template>
   <div class="qkb-msg-bubble-component qkb-msg-bubble-component--button-options">
     <div class="qkb-msg-bubble-component__text">
-      <span
-        v-for="(line,lineNumber) of mainData.text.split('\n')" 
-        v-bind:key="lineNumber" >
-        {{ line }}<br/>
+      <span v-for="(line, lineindex) of mainData.text.split('\n')" v-bind:key="lineindex" >
+        {{ line }}
+        <br/>
       </span>
     </div>
     <div class="qkb-msg-bubble-component__options-wrapper">
