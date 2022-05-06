@@ -116,11 +116,13 @@ export default {
                 options: [
                   {
                     text: 'เปิด Google',
+                    displaytext: 'เปิด Google',
                     value: 'https://google.com',
                     action: 'url'
                   },
                   {
                     text: 'ยกเลิก',
+                    displaytext: 'กดยกเลิก',
                     value: 'คำที่พิมพ์กลับไปจะดูจากtextไม่ใช่value',
                     action: 'postback' // Request to API
                   }
